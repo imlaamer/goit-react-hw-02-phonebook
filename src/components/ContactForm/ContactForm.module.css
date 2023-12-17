@@ -1,0 +1,50 @@
+.phonebookBox {
+  /* margin: 0 auto; */
+
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.261);
+  padding: 20px;
+}
+
+.phonebookForm {
+  font-size: 24px;
+  width: 200px;
+}
+
+.phoneBookInput {
+  /* display: block; */
+
+  width: 100%;
+  width: 180px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.261);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.phoneBookInput:focus {
+  border-color: rgb(2, 4, 105);
+}
+
+.phoneBookSubmitBtn {
+  width: 100%;
+  /* display: block; */
+  /* width: 200px; */
+  padding: 10px;
+  /* max-width: 200px; */
+  background-color: rgb(9, 1, 47);
+  color: aliceblue;
+  font-size: 16px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+.phoneBookSubmitBtn:hover {
+  background-color: rgb(2, 4, 105);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}

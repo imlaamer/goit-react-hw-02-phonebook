@@ -14,7 +14,7 @@ code {
     monospace;
 }
 
-.list {
+li {
   list-style-type: none;
 }
 

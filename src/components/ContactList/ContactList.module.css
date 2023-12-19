@@ -1,8 +1,9 @@
 .contactsList {
   font-size: 20px;
-  padding-left: 20px;
-}
-
-.contactsItem:not(:last-child) {
-  margin-bottom: 10px;
+  overflow-x: scroll;
+  border: 1px solid rgba(0, 0, 0, 0.261);
+  border-radius: 20px;
+  height: 150px;
+  padding: 15px;
+  font-size: 16px;
 }

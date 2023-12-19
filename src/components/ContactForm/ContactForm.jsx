@@ -18,8 +18,8 @@ class ContactForm extends Component {
     this.createContact();
     this.passData();
     this.reset();
+    // this.passData() ? this.resetName() : this.reset();
   };
-
 
   createContact = () => {
     return {
@@ -29,12 +29,17 @@ class ContactForm extends Component {
   };
 
   passData = () => {
-    this.props.onSubmit(this.createContact()); //?
+    const isDuplicate = this.props.onSubmit(this.createContact());
+    return isDuplicate;
   };
 
   reset = () => {
     this.setState({ name: '', number: '' });
   };
+
+  // resetName = () => {
+  //   this.setState({ name: '' });
+  // };
 
   render() {
     const {

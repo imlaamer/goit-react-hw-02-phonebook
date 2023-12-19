@@ -32,6 +32,7 @@ class App extends Component {
         return { contacts: [...prevState.contacts, newContact] };
       });
     }
+    return isDuplicate;
   };
 
   handleDeleteContact = id => {
@@ -108,18 +109,14 @@ class App extends Component {
               filterValue={this.state.filter}
               filterChange={this.handleFilterChange}
             />
-            <ContactList
-            // contacts={this.state.contacts}
-            // filteredContacts={filteredContacts}
-            // filter={this.state.filter}
-            >
+            <ContactList>
               {filteredContacts.length !== 0 ? (
                 <ContactItem
                   filteredContacts={filteredContacts}
                   onClick={this.handleDeleteContact}
                 ></ContactItem>
               ) : (
-                <p>There are no contacts with this name {':('}</p>
+                <p>There are no contacts {':('}</p>
               )}
             </ContactList>
           </div>

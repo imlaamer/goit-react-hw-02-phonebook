@@ -6,6 +6,7 @@ function Filter({ filterValue, filterChange }) {
   return (
     <div className={filterBox}>
       <p className={filterText}>{'Find contacts by name 🔎'}</p>
+      {/* <label htmlFor=""></label> */}
       <input
         type="text"
         name="filter"
@@ -13,6 +14,7 @@ function Filter({ filterValue, filterChange }) {
         className={filterInput}
         value={filterValue}
         onChange={filterChange}
+        autoFocus
       />
     </div>
   );

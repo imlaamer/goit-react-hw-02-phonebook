@@ -53,6 +53,7 @@ class App extends Component {
   };
 
   render() {
+    const filteredContacts = this.getFilteredContacts();
     return (
       <div
         style={{
@@ -106,9 +107,9 @@ class App extends Component {
               filterValue={this.state.filter}
               filterChange={this.handleFilterChange}
             />
-            {this.getFilteredContacts().length !== 0 ? (
+            {filteredContacts.length !== 0 ? (
               <ContactList
-                filteredContacts={this.getFilteredContacts()}
+                filteredContacts={filteredContacts}
                 onClick={this.handleDeleteContact}
               />
             ) : (

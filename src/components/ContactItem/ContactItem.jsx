@@ -1,26 +1,18 @@
 import { Fragment } from 'react';
 import css from './ContactItem.module.css';
 
-function ContactItem({ filteredContacts, onClick }) {
+function ContactItem({ onClick, name, number }) {
   const { contactsItem, contactsText, contactDeleteBtn } = css;
   return (
     <Fragment>
-      {filteredContacts?.map(contact => {
-        return (
-          <li key={contact.id} className={contactsItem}>
-            <p className={contactsText}>
-              {contact.name} : {contact.number}
-            </p>
-            <button
-              type="button"
-              className={contactDeleteBtn}
-              onClick={() => onClick(contact.id)}
-            >
-              Delete
-            </button>
-          </li>
-        );
-      })}
+      <li className={contactsItem}>
+        <p className={contactsText}>
+          {name} : {number}
+        </p>
+        <button type="button" className={contactDeleteBtn} onClick={onClick}>
+          Delete
+        </button>
+      </li>
     </Fragment>
   );
 }

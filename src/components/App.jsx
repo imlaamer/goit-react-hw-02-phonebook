@@ -25,6 +25,8 @@ class App extends Component {
       contact =>
         contact.name.toLowerCase() === newContact.name.trim().toLowerCase()
     );
+
+    // Не зрозуміла про іф ретьорн, яка різниця з іф елс ?
     if (isDuplicate) {
       alert(`${newContact.name} is already in contacts`);
     } else {
@@ -32,7 +34,14 @@ class App extends Component {
         return { contacts: [...prevState.contacts, newContact] };
       });
     }
-    return isDuplicate;
+  };
+
+  getFilteredContacts = () => {
+    const keyword = this.state.filter.trim().toLowerCase();
+    const filteredContacts = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(keyword)
+    );
+    return filteredContacts;
   };
 
   handleDeleteContact = id => {
@@ -43,19 +52,7 @@ class App extends Component {
     });
   };
 
-  // handleDeleteContact = id => {
-  //   this.setState({
-  //     contacts: this.state.contacts.filter(contact => contact.id !== id),
-  //   });
-  // };
-
   render() {
-    //
-    const keyword = this.state.filter.trim().toLowerCase();
-    const filteredContacts = this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(keyword)
-    );
-
     return (
       <div
         style={{
@@ -69,7 +66,7 @@ class App extends Component {
       >
         <div
           style={{
-            width: 640,
+            width: 680,
             padding: 30,
             display: 'flex',
             justifyContent: 'center',
@@ -92,7 +89,7 @@ class App extends Component {
               Phonebook
             </h1>
 
-            <ContactForm onSubmit={this.formSubmitHandler}></ContactForm>
+            <ContactForm onSubmit={this.formSubmitHandler} />
           </div>
           <div style={{ width: '50%' }}>
             <h2
@@ -109,16 +106,14 @@ class App extends Component {
               filterValue={this.state.filter}
               filterChange={this.handleFilterChange}
             />
-            <ContactList>
-              {filteredContacts.length !== 0 ? (
-                <ContactItem
-                  filteredContacts={filteredContacts}
-                  onClick={this.handleDeleteContact}
-                ></ContactItem>
-              ) : (
-                <p>There are no contacts {':('}</p>
-              )}
-            </ContactList>
+            {this.getFilteredContacts().length !== 0 ? (
+              <ContactList
+                filteredContacts={this.getFilteredContacts()}
+                onClick={this.handleDeleteContact}
+              />
+            ) : (
+              <p>There are no contacts {':('}</p>
+            )}
           </div>
         </div>
       </div>
